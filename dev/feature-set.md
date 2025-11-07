@@ -34,8 +34,8 @@
 ## Passive clicks
  - [ ] Go on the internet
  - - [ ] Subscribe to company newsletters
- - - [ ] Follow ??
  - - [ ] Register on a job platform (add multiple icons to the desktop?)
+ - - [ ] Follow ??
  - [ ] Set up a Linkedin profile
  - - [ ] Create a job alert
  - - [ ] Add contacts on Linkedin
@@ -83,3 +83,11 @@
  - [ ] Use scientific notation
  - [ ] Language
  - [ ] Data reset
+
+## Next steps
+ - Create English dictionary
+ - Create component for upgrades
+ - Think about desktop icons and layout
+ - Implement logic for Quick Time Events
+ - Implement logic for achievements
+ - Think about job offer system
