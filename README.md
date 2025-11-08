@@ -1,73 +1,30 @@
-# React + TypeScript + Vite
+# Employment-clicker
+A game by Eskai Garcia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## What is this?
+This is a small incremental style game created with React.
 
-Currently, two official plugins are available:
+Employment-clicker started as a small class assignment geared towards teaching us about the usage of useReducer. The objective was to replicate just the first three upgrade options from the original 'Cookie clicker', but with some creative freedom and a weekend to myself, I decided to challenge myself and do something more than what had been planned.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What features does it have?
+Your objective in employment-clicker is to get a job in as little time as possible, for that you will need to upgrade tyour resume, portfolio and social presence.
 
-## React Compiler
+ - Several upgrade paths to increase your clicks
+ - Support for translations (currently supporting English and working on Spanish)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## What other features are there planned?
+ - Random events with rewards
+ - A prestige system with an additional upgrade path
+ - Timer tracking to track the speed at which you progress 
+ - Achievements to guide your progress through the game
+ - The option to switch the appearance of the game
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## How do I try this game?
+Currently there's no user-friendly release of this game. If you still want to check this proyect out you may download the contents of this repo and start the app using npm through vite with the following command.  
+```bash
+npm run dev
 ```
+**WARNING:** This game is unfinished and unstable, despite being possible to run it there is no guarantee that it will be playable or enjoyable until a full release is published.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## What if I want something else?
+If it's anything I can help with, feel free to check out [my personal site](https://eskai.es) and reach out through any of the options in there.
