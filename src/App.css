@@ -1,0 +1,14 @@
+body{
+  margin: 0;
+  overflow: hidden;
+}
+
+#game{
+  width: 100dvw;
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr 28rem;
+
+  #screen { background: lightgreen; }
+  #panel { background: orange; }
+}
