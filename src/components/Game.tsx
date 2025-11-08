@@ -1,6 +1,8 @@
 import { useReducer, useEffect } from "react"
 import Upgrade from "./Upgrade"
 import { upgrades } from '../data/upgrades.ts'
+import englishDict from '../dictionaries/english.json'
+import spanishDict from '../dictionaries/english.json' // Update to spanishDict once available  
 
 interface GameState {
   applications: number,
@@ -13,14 +15,14 @@ interface GameState {
       multiplier: number,
       count: number
     },
-    upgrades: object, 
+    upgradeCounts: Record<string, number>, 
     settings: {
       language: string,
       fps: number,
     }
 }
 
-interface UpgradeObject {
+export interface UpgradeObject {
   id: string,
   basePrice: number,
   priceIncrement?: number,
@@ -34,6 +36,10 @@ interface UpgradeObject {
   subupgrades?: UpgradeObject
 }
 
+interface Dictionaries {
+  [key: string] : Record<string, string>
+}
+
 interface GameAction {
   trigger: 'click' | 'tick' | 'buy',
   cost?: number,
@@ -42,6 +48,29 @@ interface GameAction {
 
 
 export default function Game() {
+
+  const initialGameState : GameState = {
+    applications: 0,
+    multiplier: 1,
+    cps: 0,
+    interviewChance: 0,
+    offerChance: 0,
+    timePlayed: 0,
+    prestige: {
+      multiplier: 1,
+      count: 0
+    },
+    upgradeCounts: {},                 // This object needs to be built on new-game
+    settings: {
+      language: 'English',
+      fps: 8,
+    }
+  };
+
+  const dictionaries : Dictionaries = {
+    English: englishDict,
+    Spanish: spanishDict,
+  }
   
   function gameReducer(state: GameState, action: GameAction) {
     if(action.trigger === 'click') return { 
@@ -59,24 +88,6 @@ export default function Game() {
     throw Error ('Unknown action.')
   }
 
-  const initialGameState = {
-    applications: 0,
-    multiplier: 1,
-    cps: 0,
-    interviewChance: 0,
-    offerChance: 0,
-    timePlayed: 0,
-    prestige: {
-      multiplier: 1,
-      count: 0
-    },
-    upgrades: {},                 // This object needs to be built on new-game
-    settings: {
-      language: 'English',
-      fps: 8,
-    }
-  };
-
   const [state, dispatch] = useReducer(gameReducer, initialGameState)
 
   useEffect(() => {
@@ -86,10 +97,6 @@ export default function Game() {
 
     return () => clearInterval(ticker)
   }, [state.settings.fps])
-
-  useEffect(() => {
-    console.log(upgrades);
-  }, [])
 
   return (
     <div id="game">
@@ -101,18 +108,29 @@ export default function Game() {
           <h4>{state.cps.toFixed(1)} applications per second</h4>
           <h1>{state.applications.toFixed(0)}</h1>
           <p>job applications</p>
-          <button onClick={() => dispatch({ trigger: 'click' })}>Send job application</button>
+          <button onClick={() => dispatch({ trigger: 'click' })}>Apply for a job</button>
         </div>
-        {/* <div id="upgrades">
-          <button onClick={() => dispatch({ trigger: 'buy' })}>Buy a passive click</button>
-          <Upgrade />
-        </div> */}
         <div id="upgrades">
           {Object.entries({ ...upgrades.active, ...upgrades.passive }).map(([key, upgrade]) => (
             <Upgrade 
               key={key + upgrade.id}
+              src='_'
+              title={ dictionaries[state.settings.language][upgrade.id] }
+              price={ ('priceIncrement' in upgrade) ? 
+                      upgrade.basePrice * (1 + (upgrade.priceIncrement * state.upgradeCounts[upgrade.id])) :
+                      upgrade.basePrice }
+              count={ state.upgradeCounts[upgrade.id] }
+              // type={}
+              // locked={}
+              // affordable={}
+              // hidden={}
+              // onClick={}
             />
           ))}
+        </div>
+        <div>
+          <button>settings</button>
+          <button>collapse</button>
         </div>
       </main>
     </div>

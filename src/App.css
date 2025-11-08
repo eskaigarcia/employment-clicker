@@ -1,3 +1,11 @@
+:root{
+  font-family: sans-serif;
+}
+
+h1, p{
+  margin: 4px;
+}
+
 body{
   margin: 0;
   overflow: hidden;
@@ -10,14 +18,17 @@ body{
   grid-template-columns: 1fr 28rem;
 
   #screen { 
-    background: lightgreen; 
+    background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2754862.jpg&f=1&nofb=1&ipt=32555d55970907a6bb1f448a98ddaed7e5b565eea75012d69e8ec1f19c06eb27'); 
+    background-position: center;
+    background-size: cover;
   }
   
   #panel { 
-    background: orange; 
+    background: white ; 
     display: grid; 
-    grid-template-rows: 15rem calc(100dvh - 19rem) 4rem; 
-    
+    grid-template-rows: 13rem calc(100dvh - 17rem) 4rem; 
+    padding: 1rem;
+
     #stats {
       display: flex;
       flex-direction: column;

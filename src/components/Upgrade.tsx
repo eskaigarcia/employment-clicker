@@ -1,14 +1,21 @@
-import './Upgrade.css'
+import "./Upgrade.css";
 
-export default function Upgrade () {
+interface UpgradeProps {
+  src: string,
+  title: string,
+  price: number,
+  count: number
+}
+
+export default function Upgrade({ src, title, price, count } : UpgradeProps) {
   return (
-    <button className="upgrade locked affordable hidden">
-      <img />
+    <button className="upgrade">
+      <img src={src} />
       <div>
-        <p>item</p>
-        <p>price</p>
-        <span>amt</span>
+        <p className="upgradeName">{ title }</p>
+        <p className="upgradePrice">{ price }</p>
+        <span>{ count }</span>
       </div>
     </button>
-  )
+  );
 }

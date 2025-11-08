@@ -1,0 +1,48 @@
+button.upgrade{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: lightskyblue;
+  position: relative;
+  padding: 8px;
+
+  img{
+    background: black;
+    width: 42px;
+    height: 42px;
+  }
+  
+  > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  p.upgradeName{
+    text-align: start;
+  }
+
+  p.upgradePrice{
+    text-align: center;
+  }
+
+  span{
+    display: block;
+    position: absolute;
+    top: 4px;
+    right: 0;
+    width: 4rem;
+    height: 2rem;
+    background-color: #2279b3;
+  }
+
+  &.not-affordable{
+    background-color: #cacaca;
+    img{ filter: grayscale(1); }
+    p.upgradePrice{ color: #ff3e3e; }
+  }
+
+  &.hidden{
+    display: none;
+  }
+}
