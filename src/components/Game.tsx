@@ -1,4 +1,6 @@
 import { useReducer, useEffect } from "react"
+import Upgrade from "./Upgrade"
+import { upgrades } from '../data/upgrades.ts'
 
 interface GameState {
   applications: number,
@@ -18,7 +20,21 @@ interface GameState {
     }
 }
 
-type GameAction = {
+interface UpgradeObject {
+  id: string,
+  basePrice: number,
+  priceIncrement?: number,
+  type: 'unlock' | 'multiple' | 'temporal',
+  effects: {
+    cps?: number,
+    multiplier?: number,
+    interviewChance?: number,
+    offerChance?: number,
+  },
+  subupgrades?: UpgradeObject
+}
+
+interface GameAction {
   trigger: 'click' | 'tick' | 'buy',
   cost?: number,
   effects?: object,
@@ -71,17 +87,34 @@ export default function Game() {
     return () => clearInterval(ticker)
   }, [state.settings.fps])
 
+  useEffect(() => {
+    console.log(upgrades);
+  }, [])
+
   return (
     <div id="game">
       <div id="screen">
 
       </div>
-      <div id="panel">
-        <h2>{state.applications.toFixed(0)} job applications</h2>
-        <h4>{state.cps.toFixed(1)} applications per second</h4>
-        <button onClick={() => dispatch({ trigger: 'click' })}>Send job application</button>
-        <button onClick={() => dispatch({ trigger: 'buy' })}>Buy a passive click</button>
-      </div>
+      <main id="panel">
+        <div id="stats">
+          <h4>{state.cps.toFixed(1)} applications per second</h4>
+          <h1>{state.applications.toFixed(0)}</h1>
+          <p>job applications</p>
+          <button onClick={() => dispatch({ trigger: 'click' })}>Send job application</button>
+        </div>
+        {/* <div id="upgrades">
+          <button onClick={() => dispatch({ trigger: 'buy' })}>Buy a passive click</button>
+          <Upgrade />
+        </div> */}
+        <div id="upgrades">
+          {Object.entries({ ...upgrades.active, ...upgrades.passive }).map(([key, upgrade]) => (
+            <Upgrade 
+              key={key + upgrade.id}
+            />
+          ))}
+        </div>
+      </main>
     </div>
   )
 }
