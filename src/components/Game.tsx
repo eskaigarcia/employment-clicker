@@ -3,6 +3,7 @@ import Upgrade from "./Upgrade"
 import { upgrades } from '../data/upgrades.ts'
 import englishDict from '../dictionaries/english.json'
 import spanishDict from '../dictionaries/english.json' // Update to spanishDict once available  
+import './Game.css'
 
 interface GameState {
   applications: number,
@@ -33,7 +34,7 @@ export interface UpgradeObject {
     interviewChance?: number,
     offerChance?: number,
   },
-  subupgrades?: UpgradeObject
+  subupgrades?: Record<string, UpgradeObject>
 }
 
 interface Dictionaries {
@@ -71,6 +72,29 @@ export default function Game() {
     English: englishDict,
     Spanish: spanishDict,
   }
+
+  const renderUpgrade = (key : string, upgrade : UpgradeObject) => {
+    return (
+      <Upgrade 
+        key={key + upgrade.id}
+        src='_'
+        title={ dictionaries[state.settings.language][upgrade.id] }
+        price={ upgrade.basePrice * (1 + ((upgrade.priceIncrement ?? 1) * state.upgradeCounts[upgrade.id])) }
+        count={ state.upgradeCounts[upgrade.id] }
+        // type={}
+        // locked={}
+        // affordable={}
+        // hidden={}
+        // onClick={}
+      />
+    )
+  }
+
+  const displayUpgradePath = (path : string) => {
+    document.querySelectorAll('div.upgradepath').forEach(div => div.classList.remove('selected'));
+    document.getElementById(`${path}Path`)?.classList.add('selected')
+  }
+
   
   function gameReducer(state: GameState, action: GameAction) {
     if(action.trigger === 'click') return { 
@@ -110,23 +134,19 @@ export default function Game() {
           <p>job applications</p>
           <button onClick={() => dispatch({ trigger: 'click' })}>Apply for a job</button>
         </div>
+        <div id="upgradeSwitch">
+          <button onClick={() => displayUpgradePath('active')}>Click multiplier</button>
+          <button onClick={() => displayUpgradePath('pasive')}>Passive clicks</button>
+          <button>Prestige</button>
+        </div>
         <div id="upgrades">
-          {Object.entries({ ...upgrades.active, ...upgrades.passive }).map(([key, upgrade]) => (
-            <Upgrade 
-              key={key + upgrade.id}
-              src='_'
-              title={ dictionaries[state.settings.language][upgrade.id] }
-              price={ ('priceIncrement' in upgrade) ? 
-                      upgrade.basePrice * (1 + (upgrade.priceIncrement * state.upgradeCounts[upgrade.id])) :
-                      upgrade.basePrice }
-              count={ state.upgradeCounts[upgrade.id] }
-              // type={}
-              // locked={}
-              // affordable={}
-              // hidden={}
-              // onClick={}
-            />
-          ))}
+          <div id="activePath" className="upgradepath list selected">
+            {Object.entries(upgrades.active).map(([key, upgrade]) => renderUpgrade(key, upgrade as UpgradeObject))}
+          </div>
+          <div id="pasivePath" className="upgradepath list">
+            {Object.entries(upgrades.pasive).map(([key, upgrade]) => renderUpgrade(key, upgrade as UpgradeObject))}
+          </div>
+          {/* Prestige upgrades will go here */}
         </div>
         <div>
           <button>settings</button>

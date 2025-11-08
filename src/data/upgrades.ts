@@ -96,7 +96,7 @@ export const upgrades = {
      },
     },
   },
-  passive: {
+  pasive: {
     internet: {
       id: 'up000',
       basePrice: 5,
@@ -173,6 +173,7 @@ export const upgrades = {
       id: 'up200',
       basePrice: 0,
       type: 'unlock',
+      effects: {},
       subupgrades: {
         workPhotos: {
           id: 'up210',
@@ -201,6 +202,7 @@ export const upgrades = {
       id: 'up300',
       basePrice: 0,
       type: 'unlock',
+      effects: {},
       subupgrades: {
         joinCommunity: {
           id: 'up310',
@@ -229,6 +231,7 @@ export const upgrades = {
       id: 'up400',
       basePrice: 0,
       type: 'unlock',
+      effects: {},
       subupgrades: {
         profileGlassdoor: {
           id: 'up410',
@@ -264,6 +267,7 @@ export const upgrades = {
       id: 'up500',
       basePrice: 0,
       type: 'unlock',
+      effects: {},
       subupgrades:{
         personalBrand: {
           id: 'up510',
