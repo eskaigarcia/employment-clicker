@@ -1,0 +1,31 @@
+{
+  "at000": "Start the search!/Click 10 times",
+
+  "ua000": "Add a resume./Improve your resume.",
+  "ua001": "Add a cover letter./Improve your cover letter.",
+  "ua002": "Take better photos for your resume.",
+  "ua003": "Organize your schedule.",
+  "ua004": "Take an online course.",
+  "ua005": "Do volunteer work.",
+  "ua006": "Train your interviews.",
+  "ua007": "Get a language level certification.",
+  "ua008": "Get your soft skills certified.",
+  
+  "up000": "Go on the internet.",
+  "up010": "Subscrbe to company newsletter.",
+  "up011": "Sign up to a job hunting platform.",
+  "up100": "Join Linkedin",
+  "up110": "Improve your Linkedin profile",
+  "up111": "Invite contacts to connect on Linkedin",
+  "up112": "Set up a job alert on Linkedin",
+  "up113": "Publish a post on Linkedin",
+  "up200": "Set up a professional portfolio",
+  "up210": "Upload photos of your work",
+  "up211": "Talk about a personal project",
+  "up212": "Ask for referrals and recommendations",
+  "up300": "Join Glassdoor",
+  "up310": "Improve your Glassdoor profile",
+  "up311": "Set up a job alert on Glassdoor",
+  "up312": "Research companies to work on",
+  "up313": "Research salaries in your field"
+}

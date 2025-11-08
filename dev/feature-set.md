@@ -1,11 +1,11 @@
 # Upgrade paths
 ## Apps
-### Active dependent
+### Active dependent (PENDING)
  - Outlook express / Mail / Gmail <-- Add cover letter
  - MS Word <-- Add resume
  - Folder <-- Take photos for XC
 
-### Passive dependent
+### Passive dependent (PENDING)
  - Internet explorer / Safari / Chrome <-- Go on the internet
  - Linkedin <-- Unlocking Linkedin
  - Glassdoor <-- Unlocking Glassdoor
@@ -15,7 +15,7 @@
  - Folder <-- Achievements
  - Trashcan 
 
-## Click multiplier - active
+## Click multiplier - active (BASELINE IMPLEMENTED)
  - [ ] Add/Improve cover letter
  - [ ] Add/Improve resume
  - [ ] Take better photos for CV
@@ -31,7 +31,7 @@
 > Click multiplier upgrades are related to professional development
 > Click multiplier upgrades upgrade your chances of landing a job offer after an interview
 
-## Passive clicks
+## Passive clicks (BASELINE IMPLEMENTED)
  - [ ] Go on the internet
  - - [ ] Subscribe to company newsletters
  - - [ ] Register on a job platform (add multiple icons to the desktop?)
@@ -56,25 +56,25 @@
 > Passive click upgrades are related to online pressence
 > Passive click upgrades increase the chances of getting a job interview
 
-## Quick-time Events
+## Quick-time Events (PENDING)
  - [ ] Job fair (adds applications instantly and triggers a peroid of elevated job offers)
  - [ ] Attend a networking meetup
  - [ ] Attend a contest (Tematic?)
 
-## The job market
+## The job market (PENDING)
  - [ ] You get interviews based on reach (passive upgrades), the offer might be for any type of job on a basic possition
  - [ ] When you accept the interview, you will land an offer by chance (active upgrades) 
 
 > The job market is the prestige system. When you get a new job you start searching for a new possition but you can get prestige upgrades that help you grow
 > There will be different carreer paths and you can switch between them or grow looking for higher salaries. The higher salary the more prestige points you get for ascending.
 
-## Achievements
+## Achievements (BASELINE IMPLREMENTED)
  - [ ] Job aplications: 100, 10K, 100K, 1M ...
  - [ ] Passives: 100, 10K, 100K, 1M ...
  - [ ] Get a job paying: 20K, 40K, 60K ...
  - [ ] Prestige: 1, 2, 5, 10 ...
 
-## Settings
+## Settings (PENDING)
  - [ ] Change wallpaper
  - [ ] Change system (?)
  - [ ] FPs Fluidity (1/5/10)
