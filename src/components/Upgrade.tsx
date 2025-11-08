@@ -4,7 +4,9 @@ interface UpgradeProps {
   src: string,
   title: string,
   price: number,
-  count: number
+  count: number,
+  hidden: boolean,
+  affordable: boolean
 }
 
 export default function Upgrade({ src, title, price, count } : UpgradeProps) {

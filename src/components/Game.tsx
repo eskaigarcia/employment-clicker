@@ -28,13 +28,13 @@ export interface UpgradeObject {
   basePrice: number,
   priceIncrement?: number,
   type: 'unlock' | 'multiple' | 'temporal',
+  requires?: string,
   effects: {
     cps?: number,
     multiplier?: number,
     interviewChance?: number,
     offerChance?: number,
-  },
-  subupgrades?: Record<string, UpgradeObject>
+  }
 }
 
 interface Dictionaries {
@@ -73,22 +73,34 @@ export default function Game() {
     Spanish: spanishDict,
   }
 
-  const renderUpgrade = (key : string, upgrade : UpgradeObject) => {
+  const renderUpgrade = (key: string, upgrade: UpgradeObject) => {
+    const hidden =
+      (upgrade.type === "unlock" &&
+        state.upgradeCounts[upgrade.requires!] !== 0) ||
+      (upgrade.type !== "unlock" &&
+        state.upgradeCounts[upgrade.requires!] === 0);
+
+    const affordable =
+      upgrade.basePrice +
+        (upgrade.priceIncrement ?? 1) * state.upgradeCounts[upgrade.id] <
+      state.applications;
+
     return (
-      <Upgrade 
+      <Upgrade
         key={key + upgrade.id}
-        src='_'
-        title={ dictionaries[state.settings.language][upgrade.id] }
-        price={ upgrade.basePrice * (1 + ((upgrade.priceIncrement ?? 1) * state.upgradeCounts[upgrade.id])) }
-        count={ state.upgradeCounts[upgrade.id] }
-        // type={}
-        // locked={}
-        // affordable={}
-        // hidden={}
+        src="_"
+        title={dictionaries[state.settings.language][upgrade.id]}
+        price={
+          upgrade.basePrice *
+          (1 + (upgrade.priceIncrement ?? 1) * state.upgradeCounts[upgrade.id])
+        }
+        count={state.upgradeCounts[upgrade.id]}
+        hidden={hidden}
+        affordable={affordable}
         // onClick={}
       />
-    )
-  }
+    );
+  };
 
   const displayUpgradePath = (path : string) => {
     document.querySelectorAll('div.upgradepath').forEach(div => div.classList.remove('selected'));
