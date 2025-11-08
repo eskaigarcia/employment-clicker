@@ -186,14 +186,32 @@ export const upgrades = {
         referral: {},
       }
     },
-    glassdoor: {
+    discordSlack: {
       id: 'up300',
+      type: 'unlock',
+      subupgrades: {
+        joinCommunity: {},
+        participate: {},
+        networking: {},
+      }
+    },
+    glassdoor: {
+      id: 'up400',
       type: 'unlock',
       subupgrades: {
         profileGlassdoor: {},
         jobAlertGlassdoor: {},
         researchCompanies: {},
-        researchSalaries: {}
+        monitorSalaries: {}
+      }
+    },
+    expertise: {
+      subupgrades:{
+        personalBrand: {},
+        attendConferences: {},
+        talk:{},
+        podcast: {},
+        book: {},
       }
     }
   }

@@ -16,41 +16,14 @@
  - Trashcan 
 
 ## Click multiplier - active (BASELINE IMPLEMENTED)
- - [ ] Add/Improve cover letter
- - [ ] Add/Improve resume
- - [ ] Take better photos for CV
- - [ ] Take an online course
- - [ ] Interview training
- - [ ] Organize and plan ??
- - [ ] Train a new skill
- - [ ] Certify your soft skills
- - [ ] Certify your language skills
- - [ ] Do volunteer work
+- List implemented to src/data/upgrades.js
 
 > All click multiplier upgrades are multiple
 > Click multiplier upgrades are related to professional development
 > Click multiplier upgrades upgrade your chances of landing a job offer after an interview
 
 ## Passive clicks (BASELINE IMPLEMENTED)
- - [ ] Go on the internet
- - - [ ] Subscribe to company newsletters
- - - [ ] Register on a job platform (add multiple icons to the desktop?)
- - - [ ] Follow ??
- - [ ] Set up a Linkedin profile
- - - [ ] Create a job alert
- - - [ ] Add contacts on Linkedin
- - - [ ] Post on linkedin
- - - [ ] Translate your profile
- - - [ ] Get linkedin premium (temporal)
- - [ ] Join glassdoor
- - - [ ] Set up a job alert
- - - [ ] Improove your profile
- - - [ ] Research information about companies
- - - [ ] Learn about salaries
- - [ ] Publish your personal webiste
- - - [ ] Ask for a referral
- - - [ ] Post photos of your work
- - - [ ] Upload a personal project
+- List implemented to src/data/upgrades.js
 
 > Passive click roots are unlockable, inner options are mulitple
 > Passive click upgrades are related to online pressence
@@ -60,6 +33,9 @@
  - [ ] Job fair (adds applications instantly and triggers a peroid of elevated job offers)
  - [ ] Attend a networking meetup
  - [ ] Attend a contest (Tematic?)
+ - [ ] Get an industry award ( expertise )
+
+> Quick-time event chances start at 0 and increase when buying certain upgrades
 
 ## The job market (PENDING)
  - [ ] You get interviews based on reach (passive upgrades), the offer might be for any type of job on a basic possition
@@ -68,11 +44,14 @@
 > The job market is the prestige system. When you get a new job you start searching for a new possition but you can get prestige upgrades that help you grow
 > There will be different carreer paths and you can switch between them or grow looking for higher salaries. The higher salary the more prestige points you get for ascending.
 
+## Prestige upgrades (PENDING)
+ - [ ] Prestige boost: Augment multiplier
+ - [ ] Bots: Automate your clicking
+ - [ ] Browser extensions 
+ - [ ] Company stocks
+
 ## Achievements (BASELINE IMPLREMENTED)
- - [ ] Job aplications: 100, 10K, 100K, 1M ...
- - [ ] Passives: 100, 10K, 100K, 1M ...
- - [ ] Get a job paying: 20K, 40K, 60K ...
- - [ ] Prestige: 1, 2, 5, 10 ...
+- List implemented to src/data/achievements.js
 
 ## Settings (PENDING)
  - [ ] Change wallpaper
@@ -85,9 +64,11 @@
  - [ ] Data reset
 
 ## Next steps
- - Create English dictionary
  - Create component for upgrades
+ - Finalize user state
+ - Implement start screen and saving/exporting gameSaves
  - Think about desktop icons and layout
- - Implement logic for Quick Time Events
  - Implement logic for achievements
+ - Implement logic for Quick Time Events
  - Think about job offer system
+ - Implemente prestige system
