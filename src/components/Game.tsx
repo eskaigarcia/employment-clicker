@@ -60,7 +60,7 @@ export default function Game() {
         key={key + upgrade.id}
         src="_"
         title={text(upgrade.id)}
-        price={price}
+        price={`${price} ${text('ma006')}`}
         count={state.upgradeCounts[upgrade.id]}
         hidden={hidden}
         notAffordable={notAffordable}
@@ -129,7 +129,7 @@ export default function Game() {
       </div>
       <main id="panel">
         <div id="stats">
-          <h4>{state.cps.toFixed(1)} {text('ma001')}</h4>
+          <p className="cps">{state.cps.toFixed(1)} {text('ma001')}</p>
           <h1>{state.applications.toFixed(0)}</h1>
           <p>{text('ma000')}</p>
           <button onClick={() => dispatch({ trigger: 'click' })}>{text('ma002')}</button>
@@ -137,7 +137,8 @@ export default function Game() {
         <div id="upgradeSwitch">
           <button onClick={() => displayUpgradePath('active')}>{text('ma003')}</button>
           <button onClick={() => displayUpgradePath('pasive')}>{text('ma004')}</button>
-          <button>{text('ma005')}</button>
+          <button disabled>{text('ma005')}</button>
+          {/* <button>x1</button> */}
         </div>
         <div id="upgrades">
           <div id="activePath" className="upgradepath list selected">
