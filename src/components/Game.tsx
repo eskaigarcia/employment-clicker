@@ -46,10 +46,9 @@ export default function Game() {
 
   const renderUpgrade = (key: string, type: string, upgrade: UpgradeObject) => {
     const hidden = (type !== 'active') && (
-      (upgrade.type === "unlock" &&
-        state.upgradeCounts[upgrade.requires!] === 0) ||
-      (upgrade.type !== "unlock" &&
-        state.upgradeCounts[upgrade.requires!] !== 0));
+      (upgrade.type === "unlock" && state.upgradeCounts[upgrade.id] > 0) ||
+      (upgrade.type !== "unlock" && state.upgradeCounts[upgrade.requires!] === undefined)
+    );
 
     const price = upgrade.basePrice *
           (1 + (upgrade.priceIncrement ?? 1) * (state.upgradeCounts[upgrade.id] ?? 0));
@@ -65,7 +64,9 @@ export default function Game() {
         count={state.upgradeCounts[upgrade.id]}
         hidden={hidden}
         notAffordable={notAffordable}
-        // onClick={}
+        onClick={() => {
+          dispatch({ trigger: 'buy', upgrade: upgrade }); console.log(state.upgradeCounts)
+        }}
       />
     );
   };
@@ -85,9 +86,25 @@ export default function Game() {
       ...state,
       applications: state.applications + (state.cps / state.settings.fps),
     }
-    if(action.trigger === 'buy') return {
-      ...state,
-      cps: state.cps + 0.1,
+    if(action.trigger === 'buy') {
+      const upgrade = action.upgrade!;
+
+      const price = upgrade.basePrice *
+          (1 + (upgrade.priceIncrement ?? 1) * (state.upgradeCounts[upgrade.id] ?? 0));
+
+      const updatedState = { ...state };
+      Object.entries(upgrade.effects).forEach(([key, value]) => {
+        (updatedState[key as keyof GameState] as number) = ((updatedState[key as keyof GameState] as number) ?? 0) + value;
+      });
+      
+      return {
+        ...updatedState,
+        applications: state.applications - price!,
+        upgradeCounts: {
+          ...state.upgradeCounts,
+          [upgrade.id]: (state.upgradeCounts[upgrade.id] ?? 0) + 1,
+        }
+      }
     }
     throw Error ('Unknown action.')
   }

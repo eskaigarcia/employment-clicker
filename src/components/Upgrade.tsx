@@ -6,10 +6,12 @@ interface UpgradeProps {
   price: number,
   count: number,
   hidden: boolean,
-  notAffordable: boolean
+  notAffordable: boolean,
+  // onClick: (effects: Record<string, number>) => void
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export default function Upgrade({ src, title, price, count, hidden, notAffordable } : UpgradeProps) {
+export default function Upgrade({ src, title, price, count, hidden, notAffordable, onClick } : UpgradeProps) {
   return (
     <button
       className={
@@ -17,6 +19,7 @@ export default function Upgrade({ src, title, price, count, hidden, notAffordabl
         (hidden ? "hidden " : "") +
         (notAffordable ? "not-affordable" : "")
       }
+      onClick={!notAffordable ? onClick : undefined}
     >
       <img src={src} />
       <div>

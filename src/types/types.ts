@@ -36,6 +36,6 @@ export interface Dictionaries {
 
 export interface GameAction {
   trigger: 'click' | 'tick' | 'buy',
-  cost?: number,
-  effects?: object,
+  upgrade?: UpgradeObject,
 }
+ 

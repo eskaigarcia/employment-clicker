@@ -114,7 +114,7 @@ export const upgrades = {
       basePrice: 15,
       priceIncrement: 0.15,
       type: 'multiple',
-      requires: 'internet',
+      requires: 'up000',
       effects: {
         cps: 0.1,
         interviewChance: 0.01,
@@ -125,7 +125,7 @@ export const upgrades = {
       basePrice: 250,
       priceIncrement: 0.65,
       type: 'multiple',
-      requires: 'internet',
+      requires: 'up000',
       effects: {
         cps: 1,
         intervirewChance: 0.02
@@ -148,7 +148,7 @@ export const upgrades = {
       type: 'multiple',
       basePrice: 4500,
       priceIncrement: 0.2,
-      requires: 'linkedin',
+      requires: 'up100',
       effects: {
         cps: 5,
         interviewChance: 0.1,
@@ -159,7 +159,7 @@ export const upgrades = {
       type: 'multiple',
       basePrice: 17000,
       priceIncrement: 0.15,
-      requires: 'linkedin',
+      requires: 'up100',
       effects: {
         cps: 5,
         interviewChance: 0.05,
@@ -170,7 +170,7 @@ export const upgrades = {
       basePrice: 95000,
       priceIncrement: 0.15,
       type: 'multiple',
-      requires: 'linkedin',
+      requires: 'up100',
       effects: {
         cps: 1,
         interviewChance: 0.15,
@@ -181,7 +181,7 @@ export const upgrades = {
       basePrice: 450000,
       priceIncrement: 0.3,
       type: 'multiple',
-      requires: 'linkedin',
+      requires: 'up100',
       effects:{
         cps: 1,
         interviewChance: 0.15,
@@ -201,7 +201,7 @@ export const upgrades = {
       basePrice: 250000,
       priceIncrement: 0.25,
       type: 'multiple',
-      requires: 'site',
+      requires: 'up200',
       effects: {}
     },
     personalProject: {
@@ -209,7 +209,7 @@ export const upgrades = {
       basePrice: 900000,
       priceIncrement: 0.25,
       type: 'multiple',
-      requires: 'site',
+      requires: 'up200',
       effects: {}
     },
     referral: {
@@ -217,7 +217,7 @@ export const upgrades = {
       basePrice: 10000000,
       priceIncrement: 0.25,
       type: 'multiple',
-      requires: 'site',
+      requires: 'up200',
       effects: {}
     },
 
@@ -233,7 +233,7 @@ export const upgrades = {
       basePrice: 8000000,
       priceIncrement: 0.25,
       type: 'multiple',
-      requires: 'forum',
+      requires: 'up300',
       effects: {}
     },
     participate: {
@@ -241,7 +241,7 @@ export const upgrades = {
       basePrice: 65000000,
       priceIncrement: 0.25,
       type: 'multiple',
-      requires: 'forum',
+      requires: 'up300',
       effects: {}
     },
     networking: {
@@ -249,7 +249,7 @@ export const upgrades = {
       basePrice: 300000000,
       priceIncrement: 0.25,
       type: 'multiple',
-      requires: 'forum',
+      requires: 'up300',
       effects: {}
     },
 
@@ -266,7 +266,7 @@ export const upgrades = {
       basePrice: 225000000,
       priceIncrement: 0.25,
       type: 'multiple',
-      requires: 'glassdoor',
+      requires: 'up400',
       effects: {}
     },
     jobAlertGlassdoor: {
@@ -274,7 +274,7 @@ export const upgrades = {
       basePrice: 975000000,
       priceIncrement: 0.25,
       type: 'multiple',
-      requires: 'glassdoor',
+      requires: 'up400',
       effects: {}
     },
     researchCompanies: {
@@ -282,7 +282,7 @@ export const upgrades = {
       basePrice: 0.25,
       priceIncrement: 12000000000,
       type: 'multiple',
-      requires: 'glassdoor',
+      requires: 'up400',
       effects: {}
     },
     monitorSalaries: {
@@ -290,7 +290,7 @@ export const upgrades = {
       basePrice: 87500000000,
       priceIncrement: 0.25,
       type: 'multiple',
-      requires: 'glassdoor',
+      requires: 'up400',
       effects: {}
     },
 
@@ -307,7 +307,7 @@ export const upgrades = {
       basePrice: 650000000000,
       priceIncrement: 0.25,
       type: 'multiple',
-      requires: 'expertise',
+      requires: 'up500',
       effects: {}
     },
     attendConferences: {
@@ -315,7 +315,7 @@ export const upgrades = {
       basePrice: 1250000000000,
       priceIncrement: 0.25,
       type: 'multiple',
-      requires: 'expertise',
+      requires: 'up500',
       effects: {}
     },
     talk:{
@@ -323,7 +323,7 @@ export const upgrades = {
       basePrice: 15000000000000,
       priceIncrement: 0.25,
       type: 'multiple',
-      requires: 'expertise',
+      requires: 'up500',
       effects: {}
     },
     podcast: {
@@ -331,7 +331,7 @@ export const upgrades = {
       basePrice: 97500000000000,
       priceIncrement: 0.25,
       type: 'multiple',
-      requires: 'expertise',
+      requires: 'up500',
       effects: {}
     },
     book: {
@@ -339,7 +339,7 @@ export const upgrades = {
       basePrice: 550000000000000,
       priceIncrement: 0.25,
       type: 'multiple',
-      requires: 'expertise',
+      requires: 'up500',
       effects: {}
     }
   }
