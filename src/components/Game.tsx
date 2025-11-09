@@ -59,7 +59,7 @@ export default function Game() {
       <Upgrade
         key={key + upgrade.id}
         src="_"
-        title={dictionaries[state.settings.language][upgrade.id]}
+        title={text(upgrade.id)}
         price={price}
         count={state.upgradeCounts[upgrade.id]}
         hidden={hidden}
@@ -70,6 +70,8 @@ export default function Game() {
       />
     );
   };
+
+  const text = (key: string) => dictionaries[state.settings.language][key];
 
   const displayUpgradePath = (path : string) => {
     document.querySelectorAll('div.upgradepath').forEach(div => div.classList.remove('selected'));
@@ -122,19 +124,20 @@ export default function Game() {
   return (
     <div id="game">
       <div id="screen">
-
+        <div id="desktop"></div>
+        <div id="taskbar"></div>
       </div>
       <main id="panel">
         <div id="stats">
-          <h4>{state.cps.toFixed(1)} applications per second</h4>
+          <h4>{state.cps.toFixed(1)} {text('ma001')}</h4>
           <h1>{state.applications.toFixed(0)}</h1>
-          <p>job applications</p>
-          <button onClick={() => dispatch({ trigger: 'click' })}>Apply for a job</button>
+          <p>{text('ma000')}</p>
+          <button onClick={() => dispatch({ trigger: 'click' })}>{text('ma002')}</button>
         </div>
         <div id="upgradeSwitch">
-          <button onClick={() => displayUpgradePath('active')}>Click multiplier</button>
-          <button onClick={() => displayUpgradePath('pasive')}>Passive clicks</button>
-          <button>Prestige</button>
+          <button onClick={() => displayUpgradePath('active')}>{text('ma003')}</button>
+          <button onClick={() => displayUpgradePath('pasive')}>{text('ma004')}</button>
+          <button>{text('ma005')}</button>
         </div>
         <div id="upgrades">
           <div id="activePath" className="upgradepath list selected">
@@ -146,8 +149,9 @@ export default function Game() {
           {/* Prestige upgrades will go here */}
         </div>
         <div>
-          <button>settings</button>
+          <button>setting</button>
           <button>collapse</button>
+          <button>expand</button>
         </div>
       </main>
     </div>
