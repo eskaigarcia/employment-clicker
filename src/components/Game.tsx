@@ -13,6 +13,7 @@ import { upgrades } from '../data/upgrades'
 // Translations
 import englishDict from '../dictionaries/english.json'
 import spanishDict from '../dictionaries/spanish.json'
+import imagesDict from '../dictionaries/images.json'
 
 // CSS
 import './Game.css'
@@ -36,12 +37,14 @@ export default function Game() {
     settings: {
       language: 'English',
       fps: 8,
+      theme: 'xp',
     }
   };
 
   const dictionaries : Dictionaries = {
     English: englishDict,
     Spanish: spanishDict,
+    Images: imagesDict,
   }
 
   const renderUpgrade = (key: string, type: string, upgrade: UpgradeObject) => {
@@ -58,7 +61,7 @@ export default function Game() {
     return (
       <Upgrade
         key={key + upgrade.id}
-        src="_"
+        src={icon(upgrade.id)}
         title={text(upgrade.id)}
         price={`${price} ${text('ma006')}`}
         count={state.upgradeCounts[upgrade.id]}
@@ -72,6 +75,7 @@ export default function Game() {
   };
 
   const text = (key: string) => dictionaries[state.settings.language][key];
+  const icon = (key: string) => `/assets/icons/${state.settings.theme}/${dictionaries.Images[key]}.webp`;
 
   const displayUpgradePath = (path : string) => {
     document.querySelectorAll('div.upgradepath').forEach(div => div.classList.remove('selected'));
