@@ -12,7 +12,7 @@ import { upgrades } from '../data/upgrades'
 
 // Translations
 import englishDict from '../dictionaries/english.json'
-import spanishDict from '../dictionaries/english.json' // Update to spanishDict once available  
+import spanishDict from '../dictionaries/spanish.json'
 
 // CSS
 import './Game.css'
