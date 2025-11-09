@@ -5,6 +5,11 @@ button.upgrade{
   background-color: lightskyblue;
   position: relative;
   padding: 8px;
+  cursor: pointer;
+
+  &:hover{
+    background-color: #adffd2;
+  }
 
   img{
     background: black;
@@ -38,9 +43,11 @@ button.upgrade{
 
   &.not-affordable{
     background-color: #cacaca;
+    cursor: default;
+
     img{ filter: grayscale(1); }
     p.upgradePrice{ color: #ff3e3e; }
-    span { background-color: gray; }
+    span { background-color: gray ; }
   }
 
   &.hidden{

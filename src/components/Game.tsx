@@ -1,52 +1,23 @@
+// React
 import { useReducer, useEffect } from "react"
+
+// Typescript 
+import type { GameAction, GameState, Dictionaries, UpgradeObject } from '../types/types'
+
+// Components
 import Upgrade from "./Upgrade"
-import { upgrades } from '../data/upgrades.ts'
+
+// Data
+import { upgrades } from '../data/upgrades'
+
+// Translations
 import englishDict from '../dictionaries/english.json'
 import spanishDict from '../dictionaries/english.json' // Update to spanishDict once available  
+
+// CSS
 import './Game.css'
 
-interface GameState {
-  applications: number,
-    multiplier: number,
-    cps: number,
-    interviewChance: number,
-    offerChance: number,
-    timePlayed: number,
-    prestige: {
-      multiplier: number,
-      count: number
-    },
-    upgradeCounts: Record<string, number>, 
-    settings: {
-      language: string,
-      fps: number,
-    }
-}
-
-export interface UpgradeObject {
-  id: string,
-  basePrice: number,
-  priceIncrement?: number,
-  type: 'unlock' | 'multiple' | 'temporal',
-  requires?: string,
-  effects: {
-    cps?: number,
-    multiplier?: number,
-    interviewChance?: number,
-    offerChance?: number,
-  }
-}
-
-interface Dictionaries {
-  [key: string] : Record<string, string>
-}
-
-interface GameAction {
-  trigger: 'click' | 'tick' | 'buy',
-  cost?: number,
-  effects?: object,
-}
-
+// ==================================================
 
 export default function Game() {
 
