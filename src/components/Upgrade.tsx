@@ -6,17 +6,23 @@ interface UpgradeProps {
   price: number,
   count: number,
   hidden: boolean,
-  affordable: boolean
+  notAffordable: boolean
 }
 
-export default function Upgrade({ src, title, price, count } : UpgradeProps) {
+export default function Upgrade({ src, title, price, count, hidden, notAffordable } : UpgradeProps) {
   return (
-    <button className="upgrade">
+    <button
+      className={
+        "upgrade " +
+        (hidden ? "hidden " : "") +
+        (notAffordable ? "not-affordable" : "")
+      }
+    >
       <img src={src} />
       <div>
-        <p className="upgradeName">{ title }</p>
-        <p className="upgradePrice">{ price }</p>
-        <span>{ count }</span>
+        <p className="upgradeName">{title}</p>
+        <p className="upgradePrice">{price}</p>
+        <span>{count}</span>
       </div>
     </button>
   );

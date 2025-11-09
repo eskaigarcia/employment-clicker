@@ -73,30 +73,27 @@ export default function Game() {
     Spanish: spanishDict,
   }
 
-  const renderUpgrade = (key: string, upgrade: UpgradeObject) => {
-    const hidden =
+  const renderUpgrade = (key: string, type: string, upgrade: UpgradeObject) => {
+    const hidden = (type !== 'active') && (
       (upgrade.type === "unlock" &&
-        state.upgradeCounts[upgrade.requires!] !== 0) ||
+        state.upgradeCounts[upgrade.requires!] === 0) ||
       (upgrade.type !== "unlock" &&
-        state.upgradeCounts[upgrade.requires!] === 0);
+        state.upgradeCounts[upgrade.requires!] !== 0));
 
-    const affordable =
-      upgrade.basePrice +
-        (upgrade.priceIncrement ?? 1) * state.upgradeCounts[upgrade.id] <
-      state.applications;
+    const price = upgrade.basePrice *
+          (1 + (upgrade.priceIncrement ?? 1) * (state.upgradeCounts[upgrade.id] ?? 0));
+
+    const notAffordable = price > state.applications;
 
     return (
       <Upgrade
         key={key + upgrade.id}
         src="_"
         title={dictionaries[state.settings.language][upgrade.id]}
-        price={
-          upgrade.basePrice *
-          (1 + (upgrade.priceIncrement ?? 1) * state.upgradeCounts[upgrade.id])
-        }
+        price={price}
         count={state.upgradeCounts[upgrade.id]}
         hidden={hidden}
-        affordable={affordable}
+        notAffordable={notAffordable}
         // onClick={}
       />
     );
@@ -153,10 +150,10 @@ export default function Game() {
         </div>
         <div id="upgrades">
           <div id="activePath" className="upgradepath list selected">
-            {Object.entries(upgrades.active).map(([key, upgrade]) => renderUpgrade(key, upgrade as UpgradeObject))}
+            {Object.entries(upgrades.active).map(([key, upgrade]) => renderUpgrade(key, 'active', upgrade as UpgradeObject))}
           </div>
           <div id="pasivePath" className="upgradepath list">
-            {Object.entries(upgrades.pasive).map(([key, upgrade]) => renderUpgrade(key, upgrade as UpgradeObject))}
+            {Object.entries(upgrades.pasive).map(([key, upgrade]) => renderUpgrade(key, 'pasive', upgrade as UpgradeObject))}
           </div>
           {/* Prestige upgrades will go here */}
         </div>

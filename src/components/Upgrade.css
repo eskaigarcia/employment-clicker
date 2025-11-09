@@ -40,6 +40,7 @@ button.upgrade{
     background-color: #cacaca;
     img{ filter: grayscale(1); }
     p.upgradePrice{ color: #ff3e3e; }
+    span { background-color: gray; }
   }
 
   &.hidden{
