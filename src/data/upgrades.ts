@@ -7,8 +7,8 @@ export const upgrades = {
   active: {
     resume: {
       id: 'ua000',
-      basePrice: 120,
-      priceIncrement: 0.25,
+      basePrice: 35,
+      priceIncrement: 0.75,
       type: 'multiple',
       effects: {
         multiplier: 1,

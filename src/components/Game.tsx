@@ -65,7 +65,7 @@ export default function Game() {
         hidden={hidden}
         notAffordable={notAffordable}
         onClick={() => {
-          dispatch({ trigger: 'buy', upgrade: upgrade }); console.log(state.upgradeCounts)
+          dispatch({ trigger: 'buy', upgrade: upgrade })
         }}
       />
     );
