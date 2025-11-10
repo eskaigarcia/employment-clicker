@@ -13,6 +13,9 @@ button.upgrade{
     background-color: #6fc3f8;
   }
 
+  span.title-count0 { display: none; }
+  span.title-count1 { display: inline; }
+
   img{
     width: 42px;
     height: 42px;
@@ -34,7 +37,7 @@ button.upgrade{
     font-size: 0.9rem;
   }
 
-  span{
+  span.count{
     display: block;
     position: absolute;
     top: 4px;
@@ -49,7 +52,7 @@ button.upgrade{
     border-radius: 2px 0 0 2px;
   }
 
-  &.not-affordable{
+  &.not-affordable {
     background-color: #dcdcdc;
     cursor: default;
 
@@ -58,10 +61,15 @@ button.upgrade{
       color: #d41010;
       font-weight: 500;
     }
-    span { background-color: #f5f5f5 ; }
+    span.count { background-color: #f5f5f5 ; }
   }
 
-  &.hidden{
+  &.hidden {
     display: none;
+  }
+
+  &.new {
+    span.title-count0 { display: inline; }
+    span.title-count1 { display: none; }
   }
 }
