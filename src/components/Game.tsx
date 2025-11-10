@@ -12,7 +12,8 @@ import { upgrades } from '../data/upgrades'
 
 // Translations
 import englishDict from '../dictionaries/english.json'
-import spanishDict from '../dictionaries/english.json' // Update to spanishDict once available  
+import spanishDict from '../dictionaries/spanish.json'
+import imagesDict from '../dictionaries/images.json'
 
 // CSS
 import './Game.css'
@@ -36,12 +37,14 @@ export default function Game() {
     settings: {
       language: 'English',
       fps: 8,
+      theme: 'xp',
     }
   };
 
   const dictionaries : Dictionaries = {
     English: englishDict,
     Spanish: spanishDict,
+    Images: imagesDict,
   }
 
   const renderUpgrade = (key: string, type: string, upgrade: UpgradeObject) => {
@@ -58,9 +61,9 @@ export default function Game() {
     return (
       <Upgrade
         key={key + upgrade.id}
-        src="_"
-        title={dictionaries[state.settings.language][upgrade.id]}
-        price={price}
+        src={icon(upgrade.id)}
+        title={text(upgrade.id)}
+        price={`${price} ${text('ma006')}`}
         count={state.upgradeCounts[upgrade.id]}
         hidden={hidden}
         notAffordable={notAffordable}
@@ -70,6 +73,9 @@ export default function Game() {
       />
     );
   };
+
+  const text = (key: string) => dictionaries[state.settings.language][key];
+  const icon = (key: string) => `/assets/icons/${state.settings.theme}/${dictionaries.Images[key]}.webp`;
 
   const displayUpgradePath = (path : string) => {
     document.querySelectorAll('div.upgradepath').forEach(div => div.classList.remove('selected'));
@@ -122,19 +128,21 @@ export default function Game() {
   return (
     <div id="game">
       <div id="screen">
-
+        <div id="desktop"></div>
+        <div id="taskbar"></div>
       </div>
       <main id="panel">
         <div id="stats">
-          <h4>{state.cps.toFixed(1)} applications per second</h4>
+          <p className="cps">{state.cps.toFixed(1)} {text('ma001')}</p>
           <h1>{state.applications.toFixed(0)}</h1>
-          <p>job applications</p>
-          <button onClick={() => dispatch({ trigger: 'click' })}>Apply for a job</button>
+          <p>{text('ma000')}</p>
+          <button onClick={() => dispatch({ trigger: 'click' })}>{text('ma002')}</button>
         </div>
         <div id="upgradeSwitch">
-          <button onClick={() => displayUpgradePath('active')}>Click multiplier</button>
-          <button onClick={() => displayUpgradePath('pasive')}>Passive clicks</button>
-          <button>Prestige</button>
+          <button onClick={() => displayUpgradePath('active')}>{text('ma003')}</button>
+          <button onClick={() => displayUpgradePath('pasive')}>{text('ma004')}</button>
+          <button disabled>{text('ma005')}</button>
+          {/* <button>x1</button> */}
         </div>
         <div id="upgrades">
           <div id="activePath" className="upgradepath list selected">
@@ -146,8 +154,9 @@ export default function Game() {
           {/* Prestige upgrades will go here */}
         </div>
         <div>
-          <button>settings</button>
+          <button>setting</button>
           <button>collapse</button>
+          <button>expand</button>
         </div>
       </main>
     </div>

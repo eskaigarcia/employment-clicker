@@ -13,6 +13,7 @@ export interface GameState {
     settings: {
       language: string,
       fps: number,
+      theme: string,
     }
 }
 

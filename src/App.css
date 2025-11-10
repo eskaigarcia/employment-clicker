@@ -1,12 +1,24 @@
-:root{
-  font-family: sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Stack+Sans+Headline:wght@200..700&display=swap');
+:root {
+  --font-display: 'Stack Sans Headline', 'Arial', sans-serif;
+  --font-sans: 'Inter', 'Arial', sans-serif;
+  font-family: var(--font-sans);
 }
 
-h1, p{
-  margin: 4px;
+h1{
+  font-family: var(--font-display);
 }
 
-body{
+button{
+  font-family: var(--font-sans);
+}
+
+h4, p {
+  margin-block: 2px;
+}
+
+body {
   margin: 0;
   overflow: hidden;
 }
+

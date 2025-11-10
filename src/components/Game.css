@@ -2,7 +2,7 @@
   width: 100dvw;
   height: 100dvh;
   display: grid;
-  grid-template-columns: 1fr 28rem;
+  grid-template-columns: 1fr 26rem;
 
   #screen { 
     background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2754862.jpg&f=1&nofb=1&ipt=32555d55970907a6bb1f448a98ddaed7e5b565eea75012d69e8ec1f19c06eb27'); 
@@ -11,19 +11,46 @@
   }
   
   #panel { 
-    background: white ; 
+    background: #d6e4f8; 
+    box-shadow: 0 0 6px #1a1a28;
     display: grid; 
-    grid-template-rows: 13rem 2rem calc(100dvh - 19rem) 4rem; 
+    grid-template-rows: 12rem 2rem calc(100dvh - 19rem) 4rem; 
     padding: 1rem;
 
     #stats {
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      border: 1px solid black;
+      margin: 8px;
+      border-radius: 4px;
+      background-color: white;
+
+      h1 { 
+        font-size: 2.75rem;
+        margin-block: 8px -8px;
+      }
+      .cps {
+        font-family: var(--font-sans);
+        font-weight: 600;
+      }
+      button {
+        margin-top: 12px;
+        user-select: none;
+        cursor: pointer;
+        padding: 4px 12px;
+      }
+    }
+
+    #upgradeSwitch {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
     }
 
     #upgrades {
-      overflow-x: scroll;
+      overflow-x: hidden;
       display: flex;
 
       > div {
@@ -31,7 +58,7 @@
         width: 100%;
         flex-direction: column;
         align-items: stretch;
-        gap: 8px;
+        gap: 2px;
         &.selected {
           display: flex;
         }
