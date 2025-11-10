@@ -63,7 +63,7 @@ export default function Game() {
         key={key + upgrade.id}
         src={icon(upgrade.id)}
         title={text(upgrade.id)}
-        price={`${price} ${text('ma006')}`}
+        price={`${price.toFixed(0)} ${text('ma006')}`}
         count={state.upgradeCounts[upgrade.id]}
         hidden={hidden}
         notAffordable={notAffordable}
