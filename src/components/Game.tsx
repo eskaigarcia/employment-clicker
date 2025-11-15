@@ -36,8 +36,9 @@ export default function Game() {
     upgradeCounts: {},                 // This object needs to be built on new-game
     settings: {
       language: 'English',
-      fps: 8,
+      fps: 15,
       theme: 'xp',
+      scientificMode: false,
     }
   };
 
@@ -53,8 +54,10 @@ export default function Game() {
       (upgrade.type !== "unlock" && state.upgradeCounts[upgrade.requires!] === undefined)
     );
 
-    const price = upgrade.basePrice *
-          (1 + (upgrade.priceIncrement ?? 1) * (state.upgradeCounts[upgrade.id] ?? 0));
+    const price =
+      upgrade.basePrice *
+      (upgrade.priceIncrement ?? 1.2) **
+        (1 + (state.upgradeCounts[upgrade.id] ?? 0));
 
     const notAffordable = price > state.applications;
 
@@ -95,8 +98,10 @@ export default function Game() {
     if(action.trigger === 'buy') {
       const upgrade = action.upgrade!;
 
-      const price = upgrade.basePrice *
-          (1 + (upgrade.priceIncrement ?? 1) * (state.upgradeCounts[upgrade.id] ?? 0));
+      const price =
+        upgrade.basePrice *
+        (upgrade.priceIncrement ?? 1.2) **
+          (1 + (state.upgradeCounts[upgrade.id] ?? 0));
 
       const updatedState = { ...state };
       Object.entries(upgrade.effects).forEach(([key, value]) => {
