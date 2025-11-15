@@ -64,10 +64,11 @@
  - [ ] Data reset
 
 ## Next steps
- - Create component for upgrades
- - Finalize user state
+ - Rebalance upgrades for better progression
+ - Add onClick animation for active clicking
+ - Implement an upgrade system
+ - Add an overall multiplier for passive cookies
  - Implement start screen and saving/exporting gameSaves
- - Think about desktop icons and layout
  - Implement logic for achievements
  - Implement logic for Quick Time Events
  - Think about job offer system

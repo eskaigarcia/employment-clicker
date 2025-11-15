@@ -7,8 +7,8 @@ export const upgrades = {
   active: {
     resume: {
       id: 'ua000',
-      basePrice: 35,
-      priceIncrement: 0.75,
+      basePrice: 15,
+      priceIncrement: 0.55,
       type: 'multiple',
       effects: {
         multiplier: 1,
@@ -17,8 +17,8 @@ export const upgrades = {
     },
     letter: {
       id: 'ua001',
-      basePrice: 800,
-      priceIncrement: 0.25,
+      basePrice: 600,
+      priceIncrement: 0.5,
       type: 'multiple',
       effects: {
         multiplier: 5,
@@ -31,7 +31,7 @@ export const upgrades = {
       priceIncrement: 0.25,
       type: 'multiple',
       effects: {
-        multiplier: 15,
+        multiplier: 20,
         offerChance: 0.02,
      },
     },
@@ -122,8 +122,8 @@ export const upgrades = {
     },
     registrations: {
       id: 'up011',
-      basePrice: 250,
-      priceIncrement: 0.65,
+      basePrice: 200,
+      priceIncrement: 0.35,
       type: 'multiple',
       requires: 'up000',
       effects: {
@@ -136,7 +136,7 @@ export const upgrades = {
 
     linkedin: {
       id: 'up100',
-      basePrice: 5000,
+      basePrice: 1000,
       type: 'unlock',
       effects: {
         cps: 5,
@@ -146,22 +146,22 @@ export const upgrades = {
     profileLinkedin: {
       id: 'up110',
       type: 'multiple',
-      basePrice: 4500,
-      priceIncrement: 0.2,
+      basePrice: 1450,
+      priceIncrement: 0.25,
       requires: 'up100',
       effects: {
-        cps: 5,
+        cps: 10,
         interviewChance: 0.1,
       },
     },
     contacts: {
       id: 'up111',
       type: 'multiple',
-      basePrice: 17000,
+      basePrice: 9000,
       priceIncrement: 0.15,
       requires: 'up100',
       effects: {
-        cps: 5,
+        cps: 25,
         interviewChance: 0.05,
       },
     },

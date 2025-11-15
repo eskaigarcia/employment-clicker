@@ -14,6 +14,7 @@ export interface GameState {
       language: string,
       fps: number,
       theme: string,
+      scientificMode: boolean,
     }
 }
 
