@@ -6,6 +6,7 @@ import type { GameAction, GameState, Dictionaries, UpgradeObject } from '../type
 
 // Components
 import Upgrade from "./Upgrade"
+import optimizeNumber from "./optimizeNubmer"
 
 // Data
 import { upgrades } from '../data/upgrades'
@@ -47,7 +48,7 @@ export default function Game() {
         key={key + upgrade.id}
         src={icon(upgrade.id)}
         title={text(upgrade.id)}
-        price={`${price.toFixed(0)} ${text('ma006')}`}
+        price={`${oNum(price)} ${text('ma006')}`}
         count={state.upgradeCounts[upgrade.id]}
         hidden={hidden}
         notAffordable={notAffordable}
@@ -60,6 +61,7 @@ export default function Game() {
 
   const text = (key: string) => dictionaries[state.settings.language][key];
   const icon = (key: string) => `/assets/icons/${state.settings.theme}/${dictionaries.Images[key]}.webp`;
+  const oNum = (num: number) => optimizeNumber(num, state.settings.scientificMode);
 
   const displayUpgradePath = (path : string) => {
     document.querySelectorAll('div.upgradepath').forEach(div => div.classList.remove('selected'));
@@ -82,7 +84,7 @@ export default function Game() {
       const price =
         upgrade.basePrice *
         (upgrade.priceIncrement ?? 1.2) **
-          (1 + (state.upgradeCounts[upgrade.id] ?? 0));
+          ((state.upgradeCounts[upgrade.id] ?? 0));
 
       const updatedState = { ...state };
       Object.entries(upgrade.effects).forEach(([key, value]) => {
@@ -119,8 +121,8 @@ export default function Game() {
       </div>
       <main id="panel">
         <div id="stats">
-          <p className="cps">{state.cps.toFixed(1)} {text('ma001')}</p>
-          <h1>{state.applications.toFixed(0)}</h1>
+          <p className="cps">{oNum(state.cps)} {text('ma001')}</p>
+          <h1>{oNum(state.applications)}</h1>
           <p>{text('ma000')}</p>
           <button onClick={() => dispatch({ trigger: 'click' })}>{text('ma002')}</button>
         </div>
