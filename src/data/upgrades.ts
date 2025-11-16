@@ -8,7 +8,6 @@ export const upgrades = {
     resume: {
       id: 'ua000',
       basePrice: 15,
-      priceIncrement: 0.55,
       type: 'multiple',
       effects: {
         multiplier: 1,
@@ -17,8 +16,7 @@ export const upgrades = {
     },
     letter: {
       id: 'ua001',
-      basePrice: 600,
-      priceIncrement: 0.5,
+      basePrice: 500,
       type: 'multiple',
       effects: {
         multiplier: 5,
@@ -28,7 +26,6 @@ export const upgrades = {
     resumePhotos: {
       id: 'ua002',
       basePrice: 6000,
-      priceIncrement: 0.25,
       type: 'multiple',
       effects: {
         multiplier: 20,
@@ -38,7 +35,6 @@ export const upgrades = {
     organize: {
       id: 'ua003',
       basePrice: 35000,
-      priceIncrement: 0.25,
       type: 'multiple',
       effects: {
         multiplier: 60,
@@ -48,7 +44,6 @@ export const upgrades = {
     onlineCourse: {
       id: 'ua004',
       basePrice: 125000,
-      priceIncrement: 0.25,
       type: 'multiple',
       effects: {
         multiplier: 200,
@@ -58,7 +53,6 @@ export const upgrades = {
     volunteer: {
       id: 'ua005',
       basePrice: 975000,
-      priceIncrement: 0.25,
       type: 'multiple',
       effects: {
         multiplier: 900,
@@ -68,7 +62,6 @@ export const upgrades = {
     interviewTraining: {
       id: 'ua006',
       basePrice: 7500000,
-      priceIncrement: 0.25,
       type: 'multiple',
       effects: {
         multiplier: 1500,
@@ -78,7 +71,6 @@ export const upgrades = {
     certifyLanguage: {
       id: 'ua007',
       basePrice: 90000000,
-      priceIncrement: 0.25,
       type: 'multiple',
       effects: {
         multiplier: 8000,
@@ -88,7 +80,6 @@ export const upgrades = {
     certifySoftSkills: {
       id: 'ua008',
       basePrice: 2500000000,
-      priceIncrement: 0.25,
       type: 'multiple',
       effects: {
         multiplier: 35000,
@@ -112,7 +103,6 @@ export const upgrades = {
     newsletters: {
       id: 'up010',
       basePrice: 15,
-      priceIncrement: 0.15,
       type: 'multiple',
       requires: 'up000',
       effects: {
@@ -122,12 +112,11 @@ export const upgrades = {
     },
     registrations: {
       id: 'up011',
-      basePrice: 200,
-      priceIncrement: 0.35,
+      basePrice: 100,
       type: 'multiple',
       requires: 'up000',
       effects: {
-        cps: 1,
+        cps: 0.5,
         intervirewChance: 0.02
       }
     },
@@ -136,55 +125,51 @@ export const upgrades = {
 
     linkedin: {
       id: 'up100',
-      basePrice: 1000,
+      basePrice: 600,
       type: 'unlock',
       effects: {
-        cps: 5,
+        cps: 3,
         interviewChance: 1,
       }
     },
     profileLinkedin: {
       id: 'up110',
       type: 'multiple',
-      basePrice: 1450,
-      priceIncrement: 0.25,
+      basePrice: 600,
       requires: 'up100',
       effects: {
-        cps: 10,
+        cps: 5,
         interviewChance: 0.1,
       },
     },
     contacts: {
       id: 'up111',
       type: 'multiple',
-      basePrice: 9000,
-      priceIncrement: 0.15,
+      basePrice: 2000,
       requires: 'up100',
       effects: {
-        cps: 25,
+        cps: 10,
         interviewChance: 0.05,
       },
     },
     jobAlertLinkedin: {
       id: 'up112',
-      basePrice: 95000,
-      priceIncrement: 0.15,
+      basePrice: 10000,
       type: 'multiple',
       requires: 'up100',
       effects: {
-        cps: 1,
-        interviewChance: 0.15,
+        cps: 75,
+        interviewChance: 0.2,
       }
     },
     post: {
       id: 'up113',
-      basePrice: 450000,
-      priceIncrement: 0.3,
+      basePrice: 80000,
       type: 'multiple',
       requires: 'up100',
       effects:{
-        cps: 1,
-        interviewChance: 0.15,
+        cps: 250,
+        interviewChance: 0.25,
       }
     },
 
@@ -192,155 +177,201 @@ export const upgrades = {
 
     site: {
       id: 'up200',
-      basePrice: 300000,
+      basePrice: 400000,
       type: 'unlock',
-      effects: {},
+      effects: {
+        cps: 600,
+        interviewChance: 3,
+      },
     },
     workPhotos: {
       id: 'up210',
-      basePrice: 250000,
-      priceIncrement: 0.25,
+      basePrice: 450000,
       type: 'multiple',
       requires: 'up200',
-      effects: {}
+      effects: {
+        cps: 600,
+        interviewChance: 0.3,
+      }
     },
     personalProject: {
       id: 'up211',
-      basePrice: 900000,
-      priceIncrement: 0.25,
+      basePrice: 1250000,
       type: 'multiple',
       requires: 'up200',
-      effects: {}
+      effects: {
+        cps: 1200,
+        interviewChance: 0.5,
+      }
     },
     referral: {
       id: 'up212',
-      basePrice: 10000000,
-      priceIncrement: 0.25,
+      basePrice: 8500000,
       type: 'multiple',
       requires: 'up200',
-      effects: {}
+      effects: {
+        cps: 2000,
+        interviewChance: 0.65,
+      }
     },
 
 
     forum: {
       id: 'up300',
-      basePrice: 8500000,
+      basePrice: 70000000,
       type: 'unlock',
-      effects: {},
+      effects: {
+        cps: 8000,
+        interviewChance: 5,
+      },
     },
     joinCommunity: {
       id: 'up310',
-      basePrice: 8000000,
-      priceIncrement: 0.25,
+      basePrice: 70000000,
       type: 'multiple',
       requires: 'up300',
-      effects: {}
+      effects: {
+        cps: 10000,
+        interviewChance: 0.5,
+      }
     },
     participate: {
       id: 'up311',
-      basePrice: 65000000,
-      priceIncrement: 0.25,
+      basePrice: 400000000,
       type: 'multiple',
       requires: 'up300',
-      effects: {}
+      effects: {
+        cps: 55000,
+        interviewChance: 0.75,
+      }
     },
     networking: {
       id: 'up312',
-      basePrice: 300000000,
-      priceIncrement: 0.25,
+      basePrice: 1250000000,
       type: 'multiple',
       requires: 'up300',
-      effects: {}
+      effects: {
+        cps: 110000,
+        interviewChance: 0.75,
+      }
     },
 
 
 
     glassdoor: {
       id: 'up400',
-      basePrice: 250000000,
+      basePrice: 9000000000,
       type: 'unlock',
-      effects: {},
+      effects: {
+        cps: 350000,
+        interviewChance: 10,
+      },
     },
     profileGlassdoor: {
       id: 'up410',
-      basePrice: 225000000,
-      priceIncrement: 0.25,
+      basePrice: 10000000000,
       type: 'multiple',
       requires: 'up400',
-      effects: {}
+      effects: {
+        cps: 375000,
+        interviewChance: 1,
+      }
     },
     jobAlertGlassdoor: {
       id: 'up411',
-      basePrice: 975000000,
-      priceIncrement: 0.25,
+      basePrice: 90000000000,
       type: 'multiple',
       requires: 'up400',
-      effects: {}
+      effects: {
+        cps: 950000,
+        interviewChance: 1.5,
+      }
     },
     researchCompanies: {
       id: 'up412',
-      basePrice: 0.25,
-      priceIncrement: 12000000000,
+      basePrice: 300000000000,
       type: 'multiple',
       requires: 'up400',
-      effects: {}
+      effects: {
+        cps: 2500000,
+        interviewChance: 1.25,
+      }
     },
     monitorSalaries: {
       id: 'up413',
-      basePrice: 87500000000,
-      priceIncrement: 0.25,
+      basePrice: 950000000000,
       type: 'multiple',
       requires: 'up400',
-      effects: {}
+      effects: {
+        cps: 7000000,
+        interviewChance: 1.75,
+      }
     },
 
 
 
     expertise: {
       id: 'up500',
-      basePrice: 500000000000,
+      basePrice: 10000000000000,
       type: 'unlock',
-      effects: {},
+      effects: {
+        cps: 30000000,
+        interviewChance: 20,
+      },
     },
     personalBrand: {
       id: 'up510',
-      basePrice: 650000000000,
-      priceIncrement: 0.25,
+      basePrice: 15000000000000,
       type: 'multiple',
       requires: 'up500',
-      effects: {}
+      effects: {
+        cps: 35000000,
+        interviewChance: 2.25,
+      }
     },
     attendConferences: {
       id: 'up511',
-      basePrice: 1250000000000,
-      priceIncrement: 0.25,
+      basePrice: 90000000000000,
       type: 'multiple',
       requires: 'up500',
-      effects: {}
+      effects: {
+        cps: 80000000,
+        interviewChance: 2,
+      }
     },
     talk:{
       id: 'up512',
-      basePrice: 15000000000000,
-      priceIncrement: 0.25,
+      basePrice: 350000000000000,
       type: 'multiple',
       requires: 'up500',
-      effects: {}
+      effects: {
+        cps: 175000000,
+        interviewChance: 2.75,
+      }
     },
     podcast: {
       id: 'up513',
-      basePrice: 97500000000000,
-      priceIncrement: 0.25,
+      basePrice: 900000000000000,
       type: 'multiple',
       requires: 'up500',
-      effects: {}
+      effects: {
+        cps: 400000000,
+        interviewChance: 2.5,
+      }
     },
     book: {
       id: 'up514',
-      basePrice: 550000000000000,
-      priceIncrement: 0.25,
+      basePrice: 2500000000000000,
       type: 'multiple',
       requires: 'up500',
-      effects: {}
+      effects: {
+        cps: 950000000,
+        interviewChance: 3,
+      }
     }
-  }
+  },
+
+  powerups: {},
+
+  prestige: {}
 };
