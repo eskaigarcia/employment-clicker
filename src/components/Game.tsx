@@ -9,6 +9,7 @@ import Upgrade from "./Upgrade"
 
 // Data
 import { upgrades } from '../data/upgrades'
+import initialGameState from '../data/initialGameState'
 
 // Translations
 import englishDict from '../dictionaries/english.json'
@@ -21,26 +22,6 @@ import './Game.css'
 // ==================================================
 
 export default function Game() {
-
-  const initialGameState : GameState = {
-    applications: 0,
-    multiplier: 1,
-    cps: 0,
-    interviewChance: 0,
-    offerChance: 0,
-    timePlayed: 0,
-    prestige: {
-      multiplier: 1,
-      count: 0
-    },
-    upgradeCounts: {},                 // This object needs to be built on new-game
-    settings: {
-      language: 'English',
-      fps: 15,
-      theme: 'xp',
-      scientificMode: false,
-    }
-  };
 
   const dictionaries : Dictionaries = {
     English: englishDict,
@@ -57,7 +38,7 @@ export default function Game() {
     const price =
       upgrade.basePrice *
       (upgrade.priceIncrement ?? 1.2) **
-        (1 + (state.upgradeCounts[upgrade.id] ?? 0));
+        (state.upgradeCounts[upgrade.id] ?? 0);
 
     const notAffordable = price > state.applications;
 

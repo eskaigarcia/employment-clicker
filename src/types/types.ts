@@ -4,18 +4,10 @@ export interface GameState {
     cps: number,
     interviewChance: number,
     offerChance: number,
-    timePlayed: number,
-    prestige: {
-      multiplier: number,
-      count: number
-    },
+    stats: Record<string, number>,
+    prestige: Record<string, number>
     upgradeCounts: Record<string, number>, 
-    settings: {
-      language: string,
-      fps: number,
-      theme: string,
-      scientificMode: boolean,
-    }
+    settings: Record<string, number | string | boolean>
 }
 
 export interface UpgradeObject {
