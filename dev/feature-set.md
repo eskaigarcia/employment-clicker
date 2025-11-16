@@ -73,7 +73,6 @@
  - [ ] Data reset
 
 ## Next steps
- - Add onClick animation for active clicking
  - Implement an upgrade system
  - Add an overall multiplier for passive cookies
  - Implement start screen and saving/exporting gameSaves

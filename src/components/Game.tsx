@@ -68,6 +68,39 @@ export default function Game() {
     document.getElementById(`${path}Path`)?.classList.add('selected')
   }
 
+  const handleMainClick = () => {
+    const amount = 1 * state.multiplier;
+
+    // Get button's position
+    const rect = document
+      .getElementById("mainClicker")!
+      .getBoundingClientRect();
+
+    // Position to the side of the button (with some randomness)
+    const goingRight = Math.random() - 0.5 < 0 ? true : false;
+    const randomOffsetA = Math.random() * 80 - 40;
+    const randomOffsetB = Math.random() * 60 - 30;
+    const y = rect.top + rect.height / 2 + randomOffsetA; // Middle of button ± random
+
+    const x = goingRight
+      ? rect.right + 10 + randomOffsetB
+      : rect.left - 30 + randomOffsetB;
+
+    // Create floating text element
+    const floatingText = document.createElement("p");
+    floatingText.textContent = `+${oNum(amount)}`;
+    floatingText.className = goingRight
+      ? "click-feedback going-right"
+      : "click-feedback going-left";
+    floatingText.style.left = `${x}px`;
+    floatingText.style.top = `${y}px`;
+
+    document.body.appendChild(floatingText);
+
+    setTimeout(() => floatingText.remove(), 1000);
+
+    dispatch({ trigger: "click" });
+  };
   
   function gameReducer(state: GameState, action: GameAction) {
     if(action.trigger === 'click') return { 
@@ -124,7 +157,7 @@ export default function Game() {
           <p className="cps">{oNum(state.cps)} {text('ma001')}</p>
           <h1>{oNum(state.applications)}</h1>
           <p>{text('ma000')}</p>
-          <button onClick={() => dispatch({ trigger: 'click' })}>{text('ma002')}</button>
+          <button id="mainClicker" onClick={handleMainClick}>{text('ma002')}</button>
         </div>
         <div id="upgradeSwitch">
           <button onClick={() => displayUpgradePath('active')}>{text('ma003')}</button>
