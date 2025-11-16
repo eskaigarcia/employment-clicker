@@ -3,12 +3,6 @@
   height: 100dvh;
   display: grid;
   grid-template-columns: 1fr 26rem;
-
-  #screen { 
-    background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2754862.jpg&f=1&nofb=1&ipt=32555d55970907a6bb1f448a98ddaed7e5b565eea75012d69e8ec1f19c06eb27'); 
-    background-position: center;
-    background-size: cover;
-  }
   
   #panel { 
     background: #d6e4f8; 

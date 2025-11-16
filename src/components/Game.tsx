@@ -6,6 +6,7 @@ import type { GameAction, GameState, Dictionaries, UpgradeObject } from '../type
 
 // Components
 import Upgrade from "./Upgrade"
+import Screen from "./Screen"
 import optimizeNumber from "./optimizeNumber"
 
 // Data
@@ -148,10 +149,7 @@ export default function Game() {
 
   return (
     <div id="game">
-      <div id="screen">
-        <div id="desktop"></div>
-        <div id="taskbar"></div>
-      </div>
+      <Screen />
       <main id="panel">
         <div id="stats">
           <p className="cps">{oNum(state.cps)} {text('ma001')}</p>

@@ -1,0 +1,13 @@
+.desktop-icon {
+  img {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  p{
+    max-width: 4rem;
+    color: white;
+    text-align: center;
+    filter: drop-shadow(0 1px 3px black);
+  }
+}

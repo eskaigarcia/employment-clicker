@@ -1,0 +1,48 @@
+#screen { 
+  display: grid;
+  height: 100dvh;
+  grid-template-rows: 1fr 46px;
+  
+  #desktop {
+    background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2754862.jpg&f=1&nofb=1&ipt=32555d55970907a6bb1f448a98ddaed7e5b565eea75012d69e8ec1f19c06eb27'); 
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 2rem;
+  }
+
+  #taskbar{
+    background: linear-gradient(to top, #223f9c 0%, #3460d7 12%, 
+    #335dc6 86%, #5792de 95%, #4d7ee5 100%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    justify-content: space-between;
+
+    #appTray{
+      padding-inline: 2rem;
+      background: 
+        linear-gradient(
+          to right, 
+          #173b7a 0%, 
+          #54aee7a0 3%, 
+          #4290de80 5%, 
+          #4290de00 7%
+        ),
+        linear-gradient(
+          to top, 
+        #2e67ca 0%,
+        #4290de 12%, 
+        #438edf 86%,
+        #54aee7 95%,
+        #397cd4 100%
+        ); 
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+  }
+}
