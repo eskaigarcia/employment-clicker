@@ -9,8 +9,8 @@ export default function optimizeNumber (number : number, sci : boolean) : string
   const length = numberString.length;
 
   if (sci) {
-    if (length > 4) {
-      numberString = numberString[0] + '.' + numberString.slice(1,3);
+    if (length > 5) {
+      numberString = numberString[0] + '.' + numberString.slice(1,4);
       return `${numberString}e${length-1}`
     }
     return numberString;
@@ -19,14 +19,12 @@ export default function optimizeNumber (number : number, sci : boolean) : string
     const exception = (length - 1) % 3 == 0 && numberString[0] == '1';
     let notationKeyIndex = Math.ceil(length / 3) - 1;
 
-    if(number < 2000) return numberString;
+    if(number < 20000) return numberString;
 
     let output = ''
     if (!exception) {
       output = numberString.slice(0, (lengthMod == 0 ? 3 : lengthMod));
-      if (lengthMod != 0) {
-        output += '.' + numberString.slice(lengthMod, 3);
-      }
+      output += '.' + numberString.slice((lengthMod == 0 ? 3 : lengthMod), 4);
     } else {
       notationKeyIndex -= 1;
       output = numberString.slice(0, 4)

@@ -6,7 +6,7 @@ import type { GameAction, GameState, Dictionaries, UpgradeObject } from '../type
 
 // Components
 import Upgrade from "./Upgrade"
-import optimizeNumber from "./optimizeNubmer"
+import optimizeNumber from "./optimizeNumber"
 
 // Data
 import { upgrades } from '../data/upgrades'
