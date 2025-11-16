@@ -7,7 +7,7 @@ export interface GameState {
     stats: Record<string, number>,
     prestige: Record<string, number>
     upgradeCounts: Record<string, number>, 
-    settings: Record<string, number | string | boolean>
+    settings: Record<string, any>
 }
 
 export interface UpgradeObject {
